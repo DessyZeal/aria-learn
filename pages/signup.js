@@ -34,16 +34,16 @@ export default function Signup() {
         email: form.email,
         password: form.password,
         options: {
-          data: {
-            first_name: form.firstName,
-            last_name: form.lastName,
-            avatar: avatar,
-            age: form.age,
-            state: form.state,
-            role: whoChoice,
-          }
-        }
-      })
+  emailRedirectTo: 'https://aria-learn.vercel.app/dashboard',
+  data: {
+    first_name: form.firstName,
+    last_name: form.lastName,
+    avatar: avatar,
+    age: form.age,
+    state: form.state,
+    role: whoChoice,
+  }
+      }})
       if (authError) throw authError
 
       // Create student profile in database
