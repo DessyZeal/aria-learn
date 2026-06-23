@@ -110,9 +110,9 @@ export default function CodeQuest() {
                 //   else if (!isLocked) alert(`Level ${level.num} lesson coming soon!`)
                 // }}
                 onClick={() => {
-                if (level.num === 1 && !isLocked) router.push('/lesson')
-                else if (!isLocked) alert(`Level ${level.num} lesson coming soon!`)
-}}
+                 if (!isLocked) router.push(`/courses/code-quest/level-${level.num}`)
+        }}
+
                 style={{
                   background: isDone ? '#e6f7ee' : 'white',
                   border: `${isCurrent ? '2px' : '1.5px'} solid ${isDone ? '#1a7a4a' : isCurrent ? '#f0a500' : '#d4ece0'}`,
