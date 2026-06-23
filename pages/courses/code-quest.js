@@ -61,7 +61,7 @@ export default function CodeQuest() {
           <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: '#9ecfb0', marginBottom: 8 }}>Course 1 of 6</div>
           <div className="font-baloo" style={{ fontSize: 40, fontWeight: 800, color: 'white', lineHeight: 1.1, marginBottom: 8 }}>Code Quest</div>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', fontWeight: 600, lineHeight: 1.6, maxWidth: 560, marginBottom: 20 }}>
-            Learn to code through the stories of Africa. Help Nigerian and West African characters solve real problems — by writing real programs.
+            Learn to code through the stories of Africa. Help Nigerian and West African characters solve real problems, by writing real programs.
           </p>
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             {[['10', 'Levels'], ['500', 'Total XP'], ['10', 'Badges'], ['Flexible', 'Your pace']].map(([v, l]) => (
@@ -105,10 +105,14 @@ export default function CodeQuest() {
 
             return (
               <div key={level.num}
+                // onClick={() => {
+                //   if (level.num === 1 && !isLocked) router.push('/lesson')
+                //   else if (!isLocked) alert(`Level ${level.num} lesson coming soon!`)
+                // }}
                 onClick={() => {
-                  if (level.num === 1 && !isLocked) router.push('/lesson')
-                  else if (!isLocked) alert(`Level ${level.num} lesson coming soon!`)
-                }}
+                if (level.num === 1 && !isLocked) router.push('/lesson')
+                else if (!isLocked) alert(`Level ${level.num} lesson coming soon!`)
+}}
                 style={{
                   background: isDone ? '#e6f7ee' : 'white',
                   border: `${isCurrent ? '2px' : '1.5px'} solid ${isDone ? '#1a7a4a' : isCurrent ? '#f0a500' : '#d4ece0'}`,
