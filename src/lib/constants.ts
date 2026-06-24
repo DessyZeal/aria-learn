@@ -1,7 +1,7 @@
 export const GREETINGS = [
-  { text: 'Ẹ káàbọ̀!', sub: 'Yoruba · Welcome', color: '#1a7a4a' },
-  { text: 'Nnọọ!',      sub: 'Igbo · Welcome',   color: '#f0a500' },
-  { text: 'Barka!',     sub: 'Hausa · Welcome',   color: '#e84040' },
+  { text: 'Ẹ káàbọ̀!', language: 'YORUBA', color: '#1a7a4a' },
+  { text: 'Nnọọ!',      language: 'IGBO',   color: '#f0a500' },
+  { text: 'Barka!',     language: 'HAUSA',  color: '#e84040' },
 ] as const
 
 export const COURSES = [

@@ -1,61 +1,61 @@
 'use client'
-import { useEffect, useRef, useState, type SetStateAction } from 'react'
+import { useState, useEffect } from 'react'
 import { GREETINGS } from '@/lib/constants'
 
 export default function GreetingSlideshow() {
   const [current, setCurrent] = useState(0)
-  const [exiting, setExiting] = useState(false)
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  const goToSlide = (index: SetStateAction<number>) => {
-    setExiting(true)
-    setTimeout(() => {
-      setExiting(false)
-      setCurrent(index)
-    }, 300)
-  }
+  const [animating, setAnimating] = useState(false)
 
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      goToSlide((prev) => (prev + 1) % GREETINGS.length)
+    const interval = setInterval(() => {
+      setAnimating(true)
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % GREETINGS.length)
+        setAnimating(false)
+      }, 400)
     }, 2800)
-    return () => { if (timerRef.current !== null) clearInterval(timerRef.current) }
+    return () => clearInterval(interval)
   }, [])
 
-  const handleDotClick = (i: number) => {
-    if (timerRef.current !== null) clearInterval(timerRef.current)
-    goToSlide(i)
-    timerRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % GREETINGS.length)
-    }, 2800)
-  }
+  const greeting = GREETINGS[current]
 
   return (
-    <div style={{ minHeight: 130, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: 12, position: 'relative', width: '100%' }}>
-      {GREETINGS.map((g, i) => (
-        <div
-          key={i}
-          className={`greeting-slide ${i === current && !exiting ? 'active' : ''} ${i === current && exiting ? 'exit' : ''}`}
-        >
-          <div className="font-baloo" style={{ fontSize: 'clamp(44px, 9vw, 80px)', fontWeight: 800, color: g.color, lineHeight: 1.05 }}>
-            {g.text}
-          </div>
-          <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', marginTop: 4, opacity: 0.75, color: g.color }}>
-            {g.sub}
-          </div>
-        </div>
-      ))}
-      {/* DOTS */}
-      <div style={{ display: 'flex', gap: 8, marginTop: 140 }}>
+    <div style={{ textAlign: 'center', minHeight: '140px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <div
+        className={`greeting-slide ${!animating ? 'active' : ''}`}
+        style={{ color: greeting.color }}
+      >
+        <h1 style={{
+          fontFamily: 'var(--font-baloo)',
+          fontSize: 'clamp(2rem, 5vw, 3rem)',
+          fontWeight: 800,
+          lineHeight: 1.1,
+        }}>
+          {greeting.text}
+        </h1>
+        <p style={{
+          fontSize: '0.8rem',
+          letterSpacing: '0.1em',
+          marginTop: '0.5rem',
+          color: '#5a7a66',
+          fontFamily: 'var(--font-nunito)',
+        }}>
+          {greeting.language} · WELCOME
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', gap: '8px', marginTop: '1.5rem' }}>
         {GREETINGS.map((_, i) => (
-          <div
+          <button
             key={i}
-            onClick={() => handleDotClick(i)}
+            onClick={() => setCurrent(i)}
             style={{
-              width: 8, height: 8, borderRadius: '50%', cursor: 'pointer',
-              background: i === current ? '#1a7a4a' : '#c8ddd0',
-              transform: i === current ? 'scale(1.3)' : 'scale(1)',
-              transition: 'background 0.3s, transform 0.3s',
+              width: '8px', height: '8px',
+              borderRadius: '50%',
+              border: '2px solid #1a7a4a',
+              background: i === current ? '#1a7a4a' : 'transparent',
+              cursor: 'pointer',
+              padding: 0,
             }}
           />
         ))}
