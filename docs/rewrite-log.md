@@ -133,14 +133,27 @@ Created src/ with route groups:
 
 ---
 
-## Step 12 — Course Pages (IN PROGRESS)
-Migrating pages/dashboard.js → src/app/(dashboard)/dashboard/page.tsx
-Components to extract: Sidebar, StreakCard, LeaderboardRow
-This step also verifies the auth redirect bug is fully fixed.
+## Step 12 — Course Pages ✅
+- pages/courses/code-quest.js → src/app/(dashboard)/courses/code-quest/page.tsx (Server Component, Prisma fetch)
+- pages/level-1.js → src/app/(dashboard)/courses/code-quest/level-1/page.tsx ("use client", drag and drop)
+- pages/courses/level-2.js → src/app/(dashboard)/courses/code-quest/level-2/page.tsx ("use client", 5-step flow)
+- CodeQuestLevels.tsx extracted as client component for interactive level grid
+- Sidebar active state fixed: usePathname() replaces hardcoded activeItem prop
+- pages/courses/ .bak files renamed then deleted to unblock App Router routes
+- All three pages confirmed working (307 → /login for unauthenticated requests)
+
+## Step 13 — Cleanup ✅
+- Created src/app/auth/confirm/route.ts (Supabase email OTP confirmation handler)
+- Deleted all Pages Router files from pages/ (index, dashboard, signup, level-1, courses/)
+- Deleted pages/ directory (empty after removal)
+- Deleted root-level lib/supabase.js and styles/globals.css (replaced by src/ equivalents)
+- Deleted root-level lib/ and styles/ directories (empty after removal)
+- Verified .gitignore covers .env, .env*.local, .next/, node_modules/
+- Project is now fully on App Router — no Pages Router files remain
 
 ---
 
 ## Remaining Steps
-- Step 13: Delete pages/ directory and clean up
-- Step 14: End-to-end auth flow test
-- Step 15: Final polish and mobile responsiveness check
+- Add /courses index page (new feature, post-migration)
+- Mobile responsiveness check
+- End-to-end auth flow test
