@@ -4,7 +4,8 @@
 - Next.js 15 (App Router)
 - TypeScript (strict, no `any`)
 - Tailwind CSS with custom design tokens
-- Supabase (@supabase/ssr) — no Prisma
+- Supabase (@supabase/ssr) — Auth, RLS policies, realtime
+- Prisma 7 (@prisma/client + @prisma/adapter-pg) — schema, queries, types
 
 ## Branch
 `rewrite/migrate-to-ts`
@@ -109,9 +110,30 @@ Created src/ with route groups:
 - Avatar picker position fixed (below heading, above form fields)
 - Error handling inline (no alert())
 
+## Step 11 — Dashboard ✅
+- pages/dashboard.js.bak → src/app/(dashboard)/dashboard/page.tsx (Server Component)
+- Components extracted:
+  - src/components/dashboard/Sidebar.tsx ("use client", logout via Supabase signOut)
+  - src/components/dashboard/StreakCard.tsx (Server Component, 7-day circles)
+  - src/components/dashboard/LeaderboardRow.tsx (Server Component, rank colors)
+- src/app/(dashboard)/layout.tsx: auth check + Prisma profile fetch + Sidebar
+- All sections preserved: topbar, streak, continue learning, courses grid, badges, leaderboard
+- This step fixes the core auth redirect bug (middleware now guards /dashboard → /login)
+
+## Step 11b — Prisma ✅
+- Prisma 7.8.0 installed with @prisma/adapter-pg (required for Prisma 7 runtime)
+- prisma/schema.prisma: Profile + LessonAttempt models mapped to existing Supabase tables
+- prisma.config.ts: datasource URL + shadowDatabaseUrl for CLI migrations
+- src/lib/prisma.ts: singleton PrismaClient using PrismaPg adapter
+- src/lib/supabase/types.ts: re-exports Profile + LessonAttempt from @prisma/client
+- (dashboard)/layout.tsx: uses Prisma for profile fetch instead of raw Supabase query
+- SignupForm.tsx: removed manual profile insert — handle_new_user trigger creates it
+- .env.example: added DATABASE_URL (pooled, port 6543) + DIRECT_URL (direct, port 5432)
+- NOTE: For db push, use DIRECT_URL as DATABASE_URL temporarily (pgBouncer blocks DDL)
+
 ---
 
-## Step 11 — Dashboard (IN PROGRESS)
+## Step 12 — Course Pages (IN PROGRESS)
 Migrating pages/dashboard.js → src/app/(dashboard)/dashboard/page.tsx
 Components to extract: Sidebar, StreakCard, LeaderboardRow
 This step also verifies the auth redirect bug is fully fixed.
@@ -119,7 +141,6 @@ This step also verifies the auth redirect bug is fully fixed.
 ---
 
 ## Remaining Steps
-- Step 12: Migrate course pages (code-quest, level-1, level-2)
 - Step 13: Delete pages/ directory and clean up
 - Step 14: End-to-end auth flow test
 - Step 15: Final polish and mobile responsiveness check

@@ -51,37 +51,20 @@ export default function SignupForm({ avatar, onAvatarSelect, role, onBack, onSuc
     setLoading(true)
     try {
       const supabase = createClient()
-      const { data, error: authError } = await supabase.auth.signUp({
+      const { error: authError } = await supabase.auth.signUp({
         email: form.email,
         password: form.password,
         options: {
-          emailRedirectTo: 'https://aria-learn.vercel.app/dashboard',
           data: {
             first_name: form.firstName,
             last_name: form.lastName,
             avatar,
-            age: form.age,
-            state: form.state,
             role,
           },
         },
       })
       if (authError) throw authError
 
-      if (data.user) {
-        await supabase.from('profiles').insert({
-          id: data.user.id,
-          first_name: form.firstName,
-          last_name: form.lastName,
-          avatar,
-          age: parseInt(form.age) || null,
-          state: form.state,
-          role,
-          xp: 0,
-          streak: 0,
-          badges: [],
-        })
-      }
       onSuccess()
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
