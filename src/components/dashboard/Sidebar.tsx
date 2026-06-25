@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { AVATAR_COLORS } from '@/lib/constants'
 
@@ -11,7 +11,6 @@ interface SidebarProps {
     avatar: string
     xp: number
   }
-  activeItem?: string
 }
 
 const NAV_ITEMS = [
@@ -22,9 +21,18 @@ const NAV_ITEMS = [
   { icon: '👩‍🏫', label: 'My Teacher',  href: '/dashboard' },
 ]
 
-export default function Sidebar({ profile, activeItem = 'Home' }: SidebarProps) {
+export default function Sidebar({ profile }: SidebarProps) {
   const router = useRouter()
+  const pathname = usePathname()
   const { first_name: name, avatar, xp } = profile
+
+  const activeLabel =
+    pathname === '/dashboard'          ? 'Home'        :
+    pathname.startsWith('/courses')    ? 'My Courses'  :
+    pathname === '/leaderboard'        ? 'Leaderboard' :
+    pathname === '/badges'             ? 'My Badges'   :
+    pathname === '/teacher'            ? 'My Teacher'  :
+    ''
 
   const handleLogout = async () => {
     const supabase = createClient()
@@ -38,7 +46,7 @@ export default function Sidebar({ profile, activeItem = 'Home' }: SidebarProps) 
         Àrìa <span style={{ color: '#f0a500' }}>Learn</span>
       </div>
       {NAV_ITEMS.map(item => {
-        const active = item.label === activeItem
+        const active = item.label === activeLabel
         return (
           <Link key={item.label} href={item.href}
             style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', borderRadius: 10, fontSize: 14, fontWeight: 600, color: active ? 'white' : '#8aad96', background: active ? '#1a7a4a' : 'transparent', textDecoration: 'none', transition: 'background 0.2s' }}>

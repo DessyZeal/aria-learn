@@ -27,7 +27,6 @@ export default async function DashboardLayout({
           avatar: profile.avatar ?? '🦁',
           xp: profile.xp,
         }}
-        activeItem="Home"
       />
       <main style={{ flex: 1, overflowY: 'auto' }}>
         {children}
