@@ -1,10 +1,9 @@
-# Àrìa Learn — Next.js Application
+# Àrìa Learn — Typescript Application
 
 Nigeria's first gamified STEAM learning platform.
 
-**Stack:** Next.js · Supabase · Vercel
+**Stack:** Typescript · Supabase · Vercel
 
----
 
 ## What Is Inside
 
