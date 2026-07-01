@@ -1,0 +1,43 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Profile {
+  id         String   @id @db.Uuid
+  firstName  String?  @map("first_name")
+  lastName   String?  @map("last_name")
+  avatar     String?  @default("🦁")
+  age        Int?
+  state      String?
+  role       String?  @default("student")
+  xp         Int      @default(0)
+  streak     Int      @default(0)
+  lastActive DateTime @default(now()) @map("last_active")
+  badges     String[] @default([])
+  cqProgress Json     @default("{\"completed\": [], \"current\": 1}") @map("cq_progress")
+  szProgress Json     @default("{\"completed\": [], \"current\": 1}") @map("sz_progress")
+  schoolName String?  @map("school_name")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  lessonAttempts LessonAttempt[]
+
+  @@map("profiles")
+}
+
+model LessonAttempt {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId      String   @map("user_id") @db.Uuid
+  course      String?
+  level       Int?
+  passed      Boolean  @default(false)
+  xpEarned    Int      @default(0) @map("xp_earned")
+  attemptedAt DateTime @default(now()) @map("attempted_at")
+
+  profile Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("lesson_attempts")
+}
