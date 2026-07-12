@@ -57,7 +57,7 @@ export default function LoginPage() {
         <div className="font-baloo" style={{ fontSize: 32, fontWeight: 800, color: '#1a7a4a', marginBottom: 4 }}>
           Àrìa <span style={{ color: '#f0a500' }}>Learn</span>
         </div>
-        <div className="font-baloo" style={{ fontSize: 26, fontWeight: 800, color: '#0f1f17', marginBottom: 4, marginTop: 16 }}>Welcome back 👋</div>
+        <div className="font-baloo" style={{ fontSize: 26, fontWeight: 800, color: '#0f1f17', marginBottom: 4, marginTop: 16 }}>Welcome back</div>
         <p style={{ fontSize: 13, color: '#5a7a66', fontWeight: 600, marginBottom: 24 }}>Log in to continue your learning journey</p>
 
         {error && (

@@ -54,7 +54,7 @@ export default function SignupPage() {
             Àrìa <span style={{ color: '#f0a500' }}>Learn</span>
           </div>
           <p style={{ fontSize: 14, color: '#5a7a66', fontWeight: 600, marginBottom: 28 }}>Nigeria&apos;s gamified STEAM platform</p>
-          <div className="font-baloo" style={{ fontSize: 26, fontWeight: 800, color: '#0f1f17', marginBottom: 8 }}>Who is joining today? 👋</div>
+          <div className="font-baloo" style={{ fontSize: 26, fontWeight: 800, color: '#0f1f17', marginBottom: 8 }}>Who is joining today?</div>
           <p style={{ fontSize: 14, color: '#5a7a66', fontWeight: 600, marginBottom: 32 }}>Choose your account type to get started</p>
 
           <RoleSelector selected={whoChoice} onSelect={setWhoChoice} />

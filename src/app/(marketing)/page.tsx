@@ -6,7 +6,7 @@ import StatsStrip from '@/components/marketing/StatsStrip'
 import { COURSES } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: "Àrìa Learn — Nigeria's Gamified STEAM Platform",
+  title: "Àrìa Learn - Nigeria's Gamified STEAM Platform",
   description: "Nigeria's first gamified STEAM platform built for every child in every community.",
   icons: { icon: '/favicon.ico' },
 }

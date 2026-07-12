@@ -120,7 +120,7 @@ export default function CQLevel1() {
 
           <div style={{ background: '#fff8e8', border: '1.5px solid #ffd166', borderRadius: 14, padding: '16px 18px' }}>
             <p style={{ fontSize: 14, lineHeight: 1.65, color: '#1a2e22', fontWeight: 600 }}>
-              Long ago, <strong style={{ color: '#1a7a4a' }}>Mbe the Tortoise</strong> was known across the land for his wisdom. One dry season, he needed to reach the great river to fetch water for his village. But Mbe moves slowly — he needs your help to write the steps that will guide him there! 🌍
+              Long ago, <strong style={{ color: '#1a7a4a' }}>Mbe the Tortoise</strong> was known across the land for his wisdom. One dry season, he needed to reach the great river to fetch water for his village. But Mbe moves slowly, he needs your help to write the steps that will guide him there! 🌍
             </p>
           </div>
 

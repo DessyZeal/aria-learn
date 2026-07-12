@@ -6,9 +6,9 @@ export default function MarketingLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <div className="font-baloo">
       <Navbar />
       {children}
-    </>
+    </div>
   )
 }

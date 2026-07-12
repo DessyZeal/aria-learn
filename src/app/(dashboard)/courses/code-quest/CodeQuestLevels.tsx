@@ -4,14 +4,14 @@ import { useRouter } from 'next/navigation'
 
 const LEVELS = [
   { num: 1,  title: "Mbe's First Steps",      story: "Mbe the Tortoise must reach the river before dry season ends.",               concept: "Sequencing · move_forward()",         badge: "First Step 🐢",       xp: 50  },
-  { num: 2,  title: "The Talking Drum",        story: "Adaeze must send a message by drum — the beats must be in order.",            concept: "Order of instructions · Debugging",   badge: "Drum Coder 🥁",      xp: 50  },
+  { num: 2,  title: "The Talking Drum",        story: "Adaeze must send a message by drum, the beats must be in order.",            concept: "Order of instructions · Debugging",   badge: "Drum Coder 🥁",      xp: 50  },
   { num: 3,  title: "Counting the Yams",       story: "Farmer Chukwu needs to count his harvest without counting forever!",          concept: "Loops · repeat()",                    badge: "Loop Master 🔄",     xp: 50  },
-  { num: 4,  title: "The River or the Road?",  story: "Amara must choose the fastest path — the road may be blocked.",               concept: "Conditionals · if/else",              badge: "Decision Maker 🛤️",  xp: 50  },
+  { num: 4,  title: "The River or the Road?",  story: "Amara must choose the fastest path, the road may be blocked.",               concept: "Conditionals · if/else",              badge: "Decision Maker 🛤️",  xp: 50  },
   { num: 5,  title: "Mama's Recipe",           story: "Mama Ngozi's jollof rice recipe has steps that depend on ingredients!",       concept: "Nested conditions · Boolean logic",   badge: "Logic Chef 🍛",      xp: 50  },
   { num: 6,  title: "The Village Builder",     story: "The community wants a new well. Emeka must give workers instructions.",       concept: "Functions · define and call",         badge: "Function Builder 🏗️", xp: 50  },
   { num: 7,  title: "Saving the Harvest",      story: "A storm is coming! Fatima must store village data before it is lost.",        concept: "Variables · storing data",            badge: "Data Keeper 📦",     xp: 50  },
-  { num: 8,  title: "The Leaking Bucket",      story: "Kwame's program keeps running but never finishes — something is wrong!",      concept: "Debugging · finding and fixing bugs", badge: "Bug Hunter 🔍",      xp: 50  },
-  { num: 9,  title: "The Spider and the Web",  story: "Anansi must weave a web — each thread connects to another. Sound familiar?", concept: "Events · interactions",               badge: "Web Weaver 🕷️",      xp: 50  },
+  { num: 8,  title: "The Leaking Bucket",      story: "Kwame's program keeps running but never finishes, something is wrong!",      concept: "Debugging · finding and fixing bugs", badge: "Bug Hunter 🔍",      xp: 50  },
+  { num: 9,  title: "The Spider and the Web",  story: "Anansi must weave a web, each thread connects to another. Sound familiar?", concept: "Events · interactions",               badge: "Web Weaver 🕷️",      xp: 50  },
   { num: 10, title: "My First Game",           story: "Use everything you have learned to build your own African-themed game!",      concept: "Capstone — all concepts",             badge: "Game Creator 🎮",    xp: 100 },
 ]
 

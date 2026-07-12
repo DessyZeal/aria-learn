@@ -170,9 +170,9 @@ export default function CQLevel2() {
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', marginTop: 8 }}>Adaeze&apos;s Village · Abia State</div>
             </div>
             <h2 style={s.h2}>The Talking Drum 🥁</h2>
-            <p style={s.body}>In Adaeze&apos;s village, the talking drum is used to send messages between communities. Each beat has a meaning — but the beats must come in the <strong>exact right order</strong> or the message becomes nonsense.</p>
+            <p style={s.body}>In Adaeze&apos;s village, the talking drum is used to send messages between communities. Each beat has a meaning, but the beats must come in the <strong>exact right order</strong> or the message becomes nonsense.</p>
             <p style={s.body}>Today, Adaeze is learning to send an important message to the next village. But she accidentally mixed up the order of her beats. The message came out wrong and the neighbouring village was confused!</p>
-            <p style={s.body}>Help Adaeze understand why <strong>order matters in coding</strong> — and how to fix her mistake by <strong>debugging</strong> the sequence.</p>
+            <p style={s.body}>Help Adaeze understand why <strong>order matters in coding</strong>, and how to fix her mistake by <strong>debugging</strong> the sequence.</p>
             <button style={s.btnGreen} onClick={() => setStep('learn')}>Learn the concept →</button>
           </div>
         )}
@@ -182,9 +182,9 @@ export default function CQLevel2() {
           <div style={s.card}>
             <h2 style={s.h2}>📖 Order of Instructions</h2>
             <div style={{ background: '#f0edfd', border: '1.5px solid #c5b8f0', borderRadius: 14, padding: 20, marginBottom: 20 }}>
-              <p style={{ ...s.body, marginBottom: 8 }}>In coding, a computer follows your instructions <strong>exactly as you write them — in order, from top to bottom.</strong></p>
+              <p style={{ ...s.body, marginBottom: 8 }}>In coding, a computer follows your instructions <strong>exactly as you write them, in order, from top to bottom.</strong></p>
               <p style={{ ...s.body, marginBottom: 8 }}>If you write the wrong order, you get the wrong result. Just like Adaeze&apos;s drum beats.</p>
-              <p style={{ ...s.body, marginBottom: 0 }}>Finding and fixing mistakes in code is called <strong style={{ color: '#6c4fc7' }}>DEBUGGING</strong>. Every programmer debugs their code — it is a normal and important skill.</p>
+              <p style={{ ...s.body, marginBottom: 0 }}>Finding and fixing mistakes in code is called <strong style={{ color: '#6c4fc7' }}>DEBUGGING</strong>. Every programmer debugs their code, it is a normal and important skill.</p>
             </div>
             <div style={{ background: '#e6f7ee', border: '1.5px solid #1a7a4a', borderRadius: 14, padding: 20, marginBottom: 20 }}>
               <p style={{ fontFamily: "'Baloo 2', cursive", fontSize: 16, fontWeight: 800, color: '#1a7a4a', marginBottom: 8 }}>Example:</p>
@@ -210,7 +210,7 @@ export default function CQLevel2() {
             <p style={s.body}>The beats below are in the wrong order. Tap them in the correct order (Beat 1, Beat 2, Beat 3, Beat 4) to fix Adaeze&apos;s message!</p>
 
             <div style={{ marginBottom: 16 }}>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#5a7a66', marginBottom: 8 }}>Available beats — tap to arrange:</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#5a7a66', marginBottom: 8 }}>Available beats, tap to arrange:</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {dragItems.filter(item => !arranged.includes(item)).map(item => (
                   <button key={item} onClick={() => { if (!arranged.includes(item)) setArranged(prev => [...prev, item]) }} style={s.dragItem}>{item}</button>
@@ -281,7 +281,7 @@ export default function CQLevel2() {
             ) : (
               <div style={{ background: score >= 2 ? '#e6f7ee' : '#fff0f0', border: `1.5px solid ${score >= 2 ? '#1a7a4a' : '#f5a0a0'}`, borderRadius: 12, padding: 16, marginTop: 8 }}>
                 <p style={{ fontFamily: "'Baloo 2', cursive", fontSize: 18, fontWeight: 800, color: score >= 2 ? '#1a7a4a' : '#e84040' }}>
-                  {score >= 2 ? `🎉 You scored ${score}/3 — Amazing!` : `You scored ${score}/3 — Try again!`}
+                  {score >= 2 ? `🎉 You scored ${score}/3  Amazing!` : `You scored ${score}/3 — Try again!`}
                 </p>
                 {score < 2 && <button style={s.btnGreen} onClick={() => { setQuizAnswers({}); setQuizSubmitted(false) }}>Try again</button>}
               </div>
@@ -294,7 +294,7 @@ export default function CQLevel2() {
           <div style={{ ...s.card, textAlign: 'center' }}>
             <div style={{ fontSize: 80, marginBottom: 16 }}>🥁</div>
             <h2 style={{ ...s.h2, textAlign: 'center' }}>You earned the Drum Coder badge!</h2>
-            <p style={{ ...s.body, textAlign: 'center' }}>You understand that order matters in coding and you know how to debug a sequence. Adaeze&apos;s village got the right message — because of you!</p>
+            <p style={{ ...s.body, textAlign: 'center' }}>You understand that order matters in coding and you know how to debug a sequence. Adaeze&apos;s village got the right message, because of you!</p>
             <div style={{ background: '#fff8e8', border: '2px solid #f0a500', borderRadius: 16, padding: 16, margin: '20px auto', maxWidth: 300 }}>
               <div style={{ fontSize: 48 }}>🥁</div>
               <div style={{ fontFamily: "'Baloo 2', cursive", fontSize: 20, fontWeight: 800, color: '#f0a500' }}>Drum Coder</div>
